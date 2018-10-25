@@ -31,6 +31,15 @@ echo helloWorld();
 
 print helloWorld();
 
+/**
+ * These next functions are quite similar but also have their differences.
+ * While var_dump() displays a structured information about its arguments, print_r() displays information about its
+ * arguments in a way that is readable by humans easily.
+ *
+ * Both of them are commonly executed for debugging because they are very helpful for giving information about their
+ * arguments.
+ */
+
 var_dump("Hello World!");
 
 print_r("Hello World!");
