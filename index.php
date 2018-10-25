@@ -14,6 +14,14 @@
  */
 
 
+/**
+ * First, the more common, the echo and print statements.
+ * Both are similar, but they have some particular differences.
+ *
+ * While the echo statement can accept multiple arguments, the print statement can only accept one argument.
+ * Also, echo does not return any value, while the print statement returns the value 1.
+ *
+ */
 
 echo "Hello World!";
 
