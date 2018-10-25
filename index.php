@@ -42,6 +42,19 @@ var_dump("Hello World!");
 print_r("Hello World!");
 
 
+/**
+ * PHP is a multi paradigm programming language. While you can write code in a structural form (like the code shown
+ * above), you can also write code in a Object Oriented Programming form.
+ *
+ * Below there is a function that returns the "Hello World!" string.
+ *
+ * The statements and functions that were explained above can call this helloWorld() function and outputs its returning
+ * value.
+ *
+ * It is worthy remembering that the echo and the print statements can only outputs integer, float, string and boolean
+ * (this last one as 0 or 1) types of data. While var_dump() and print_r() functions can output other types of values.
+ */
+
 function helloWorld ()
 {
     return "Hello World!";
