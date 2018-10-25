@@ -1,5 +1,19 @@
 <?php
 
+/**
+ * For outputting any message on the screen, PHP offers to you some methods to do that. *
+ *
+ * Below we can see some of them:
+ *
+ * echo
+ * print
+ * var_dump()
+ * print_r()
+ *
+ * *These statements were written and executed in PHP 7.2.
+ */
+
+
 
 echo "Hello World!";
 
