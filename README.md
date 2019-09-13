@@ -1,10 +1,11 @@
 ---
-topic: PHP Hello World
+page_type: sample
 languages:
-  - php
+- php
 products:
-  - Azure App Service
-  - Azure Web Apps
+- azure
+description: "This sample demonstrates a tiny Hello World PHP app for App Service."
+urlFragment: php-docs-hello-world
 ---
 
 # PHP Hello World
