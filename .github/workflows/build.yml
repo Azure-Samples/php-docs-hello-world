@@ -17,4 +17,15 @@ jobs:
       run: echo Execute build
     - name: Run tests
       run: echo test execution
+    - name: Login via Az module
+      uses: azure/login@v1.1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS}}
+        enable-AzPSSession: true        
+    - name: Run Azure PowerShell script
+      uses: azure/powershell@v1
+      with:
+        inlineScript: |
+          Get-AzLogicAppTriggerCallbackUrl -ResourceGroupName vatsamigration -Name test2 -TriggerName manual
+        azPSVersion: '3.1.0'
     
