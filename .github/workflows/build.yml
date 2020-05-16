@@ -23,9 +23,12 @@ jobs:
         creds: ${{secrets.AZURE_CREDENTIALS}}
         enable-AzPSSession: true        
     - name: Run Azure PowerShell script
+      id: GetUrl
       uses: azure/powershell@v1
       with:
         inlineScript: |
-          Get-AzLogicAppTriggerCallbackUrl -ResourceGroupName actionsdemo -Name MyFirstLogiApp -TriggerName manual
-        azPSVersion: '3.1.0'
-    
+          $url = (Get-AzLogicAppTriggerCallbackUrl -ResourceGroupName actionsdemo -Name MyFirstLogiApp -TriggerName manual).Value
+          echo "::add-mask::$url"
+          echo "::set-output name=LogicAppUrl::$url"
+    - name: Print Url
+      run: echo ${{ steps.GetUrl.outputs.LogicAppUrl }}
