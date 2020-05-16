@@ -25,7 +25,9 @@ jobs:
     - name: Run Azure PowerShell script
       id: GetUrl
       run: |
-          $url = (Get-AzLogicAppTriggerCallbackUrl -ResourceGroupName actionsdemo -Name MyFirstLogiApp -TriggerName manual).Value
+          $urlObject = Get-AzLogicAppTriggerCallbackUrl -ResourceGroupName actionsdemo -Name MyFirstLogiApp -TriggerName manual
+          echo $urlObject
+          $url = $urlObject.Value
           echo "::set-output name=LogicAppUrl::$url"
     - name: Print Url
       run: echo ${{ steps.GetUrl.outputs.LogicAppUrl }}
