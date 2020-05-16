@@ -1,10 +1,6 @@
 name: Build
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+on: push
 
 jobs:
   build:
@@ -27,19 +23,23 @@ jobs:
       uses: azure/powershell@v1
       with:
         inlineScript: |
-          $urlObject = Get-AzLogicAppTriggerCallbackUrl -ResourceGroupName actionsdemo -Name MyFirstLogiApp -TriggerName manual
-          if ($urlObject)
-          {
-          Write-Host $urlObject
-          $url = $urlObject.Value
+          $url = (Get-AzLogicAppTriggerCallbackUrl -ResourceGroupName actionsdemo -Name MyFirstLogiApp -TriggerName manual).Value
           if ($url)
           {
-          Write-Host $url
+          echo $url
+          echo "::set-output name=LogicAppUrl::$url"
           }
           else
           {
-          echo "::set-output name=LogicAppUrl::$url"
+          echo "Url not found"
           }
-          }
+        azPSVersion: '3.1.0'
+          
     - name: Print Url
-      run: echo ${{ steps.GetUrl.outputs.LogicAppUrl }}
+      run: |
+          $value = "${{ steps.GetUrl.outputs.LogicAppUrl }}" 
+          if ($value)
+          {
+          echo $value
+          }
+          
