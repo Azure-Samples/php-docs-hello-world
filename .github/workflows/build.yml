@@ -14,7 +14,7 @@ jobs:
     - name: Install dependencies
       run: echo install dependencies
     - name: Build
-      run: Execute build
+      run: echo Execute build
     - name: Run tests
       run: echo test execution
     
