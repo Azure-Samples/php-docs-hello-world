@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Validate composer.json and composer.lock
-      run: composer validate
     - name: Install dependencies
-      run: composer install --prefer-dist --no-progress
+      run: echo install dependencies
+    - name: Build
+      run: Execute build
     - name: Run tests
       run: echo test execution
     
