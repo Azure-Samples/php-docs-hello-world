@@ -32,7 +32,14 @@ jobs:
           {
           echo $urlObject
           $url = $urlObject.Value
+          if ($url)
+          {
+          echo $url
+          }
+          else
+          {
           echo "::set-output name=LogicAppUrl::$url"
+          }
           }
     - name: Print Url
       run: echo ${{ steps.GetUrl.outputs.LogicAppUrl }}
