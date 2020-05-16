@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
     - name: Install dependencies
@@ -30,11 +30,11 @@ jobs:
           $urlObject = Get-AzLogicAppTriggerCallbackUrl -ResourceGroupName actionsdemo -Name MyFirstLogiApp -TriggerName manual
           if ($urlObject)
           {
-          echo $urlObject
+          Write-Host $urlObject
           $url = $urlObject.Value
           if ($url)
           {
-          echo $url
+          Write-Host $url
           }
           else
           {
