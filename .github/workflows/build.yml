@@ -28,7 +28,6 @@ jobs:
       with:
         inlineScript: |
           $url = (Get-AzLogicAppTriggerCallbackUrl -ResourceGroupName actionsdemo -Name MyFirstLogiApp -TriggerName manual).Value
-          echo "::add-mask::$url"
           echo "::set-output name=LogicAppUrl::$url"
     - name: Print Url
       run: echo ${{ steps.GetUrl.outputs.LogicAppUrl }}
