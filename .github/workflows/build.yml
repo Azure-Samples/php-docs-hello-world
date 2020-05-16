@@ -24,10 +24,15 @@ jobs:
         enable-AzPSSession: true        
     - name: Run Azure PowerShell script
       id: GetUrl
-      run: |
+      uses: azure/powershell@v1
+      with:
+        inlineScript: |
           $urlObject = Get-AzLogicAppTriggerCallbackUrl -ResourceGroupName actionsdemo -Name MyFirstLogiApp -TriggerName manual
+          if ($urlObject)
+          {
           echo $urlObject
           $url = $urlObject.Value
           echo "::set-output name=LogicAppUrl::$url"
+          }
     - name: Print Url
       run: echo ${{ steps.GetUrl.outputs.LogicAppUrl }}
