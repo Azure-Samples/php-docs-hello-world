@@ -27,6 +27,7 @@ jobs:
           if ($url)
           {
           echo $url
+          echo "::add-mask::$url"
           echo "::set-output name=LogicAppUrl::$url"
           }
           else
