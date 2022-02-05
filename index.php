@@ -1,7 +1,6 @@
 <?php
 
-echo "Hello World! my Name is Md Murtuza";
-<!doctype html>
+echo "Hello World! my Name is Md Murtuza <!doctype html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -168,4 +167,4 @@ Place: Delhi</h16>
 
 
 </body>
-</html>
+</html>";
