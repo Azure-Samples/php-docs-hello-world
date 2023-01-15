@@ -32,9 +32,9 @@ echo '<!DOCTYPE html>
         <div>';
         require_once "config.php";
         $query="SELECT * from tbl_learners;";
-                    $result = mysqli_query($conn, $query);
+                    $result = mysqli_query($con, $query);
 	                if (!$result){
-		                echo mysqli_error($conn);
+		                echo mysqli_error($con);
                         echo "Broke it!";
 	                }
 	                else {
