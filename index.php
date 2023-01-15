@@ -35,6 +35,7 @@ echo '<!DOCTYPE html>
                     $result = mysqli_query($conn, $query);
 	                if (!$result){
 		                echo mysqli_error($conn);
+                        echo "Broke it!";
 	                }
 	                else {
 		                if(mysqli_num_rows($result)>0){
