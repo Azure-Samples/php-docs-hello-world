@@ -1,5 +1,5 @@
 <?php
-$hn = "df-sql-jbc.mysql.database.azure.com;
+$hn = "df-sql-jbc.mysql.database.azure.com";
 $un = "davidf";
 $pw = "Katie090115";
 $db = "cbplearners";
