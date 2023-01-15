@@ -42,6 +42,9 @@ echo '<!DOCTYPE html>
                                 echo "{$row['firstName']}";
                             }
                         }
+                        else{
+                            echo "none found";
+                        }
                     }
                     echo '
         </div>
