@@ -30,6 +30,7 @@ echo '<!DOCTYPE html>
             <p>giving you access the tools you need to be the best.</p>
         </div>
         <div>';
+        require "config.php"
         $query="SELECT * from tbl_learners;";
                     $result = mysqli_query($conn, $query);
 	                if (!$result){
