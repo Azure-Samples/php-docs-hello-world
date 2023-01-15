@@ -25,8 +25,8 @@ echo '<!DOCTYPE html>
     </style>
 </head>
 <body>
-    <div class="container-fluid p-5">
-        <div id="titlediv" class="mt-4 p-5 rounded">
+    <div class="container-fluid m-5">
+        <div id="titlediv" class="mt-4 m-5 rounded">
   <h1>Jumbotron Example</h1>
   <p>Lorem ipsum...</p>
 </div>
