@@ -29,7 +29,21 @@ echo '<!DOCTYPE html>
             <h1 class="h1">Staff test site</h1>
             <p>giving you access the tools you need to be the best.</p>
         </div>
-        <div
+        <div>';
+        $query="SELECT * from tbl_learners;";
+                    $result = mysqli_query($conn, $query);
+	                if (!$result){
+		                echo mysqli_error($conn);
+	                }
+	                else {
+		                if(mysqli_num_rows($result)>0){
+			                while($row = mysqli_fetch_assoc($result)) {
+                                echo "{$row['firstName']}";
+                            }
+                        }
+                    }
+                    echo '
+        </div>
     </div>
 
 </body>
