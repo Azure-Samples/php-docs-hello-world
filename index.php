@@ -1,5 +1,8 @@
 <?php
-
+$host = 'df-sql-jbc.mysql.database.azure.com';
+$username = 'davidf';
+$password = 'Katie090115';
+$db_name = 'cbplearners';
 echo '<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -30,24 +33,23 @@ echo '<!DOCTYPE html>
             <p>giving you access the tools you need to be the best.</p>
         </div>
         <div>';
-        require_once "config.php";
-        $query="SELECT * from tbl_learners;";
-                    $result = mysqli_query($con, $query);
-	                if (!$result){
-		                echo mysqli_error($con);
-                        echo "Broke it!";
-	                }
-	                else {
-		                if(mysqli_num_rows($result)>0){
-			                while($row = mysqli_fetch_assoc($result)) {
-                                echo "{$row['firstName']}";
-                            }
-                        }
-                        else{
-                            echo "none found";
-                        }
-                    }
-                    echo '
+        $conn = mysqli_init();
+        mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306);
+        if (mysqli_connect_errno($conn)) {
+        die('Failed to connect to MySQL: '.mysqli_connect_error());
+        }
+        if (mysqli_query($conn, "SELECT * from tbl_learners;")) {
+
+            if(mysqli_num_rows($result)>0){
+			    while($row = mysqli_fetch_assoc($result)) {
+                    echo "{$row['firstName']}";
+                }
+            }
+            else{
+                echo "none found";
+            }
+        }
+        echo '
         </div>
     </div>
 
