@@ -1,7 +1,7 @@
 <?php
 $host = 'df-sql-jbc.mysql.database.azure.com';
 $username = 'davidf';
-$password = 'Katie090115';
+$password = 'Jbc150615"';
 $db_name = 'cbplearners';
 echo '<!DOCTYPE html>
 
@@ -34,11 +34,13 @@ echo '<!DOCTYPE html>
         </div>
         <div>';
         $conn = mysqli_init();
-        mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306);
-        if (mysqli_connect_errno($conn)) {
+		mysqli_ssl_set($conn,NULL,NULL, "DigiCertGlobalRootCA.crt.pem", NULL, NULL);
+        mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, MYSQLI_CLIENT_SSL);
+        if (mysqli_connect_errno()) {
         die('Failed to connect to MySQL: '.mysqli_connect_error());
         }
-        if (mysqli_query($conn, "SELECT * from tbl_learners;")) {
+		$result=mysqli_query($conn, "SELECT * from tbl_learners;");
+        if ($result) {
 
             if(mysqli_num_rows($result)>0){
 			    while($row = mysqli_fetch_assoc($result)) {
@@ -50,6 +52,27 @@ echo '<!DOCTYPE html>
             }
         }
         echo '
+        </div>
+        <div>
+            <form action="createcbp.php">
+                <div class="row">
+                    <div class="col">
+                        <input class="form-control" type="text" name="st" placeholder="start Date">
+                    </div>
+                    <div class="col">
+                        <input class="form-control" type="text" name="end" placeholder="Planned End Date">
+                    </div>
+                </div>
+                <div class="row">
+                    <select name="tutors" class="form-select">
+                        <option>Tom, Martin, Stef, Dan</option>
+                        <option>Mosh, Max, Stefan</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <input type="submit" value="save" />
+                </div>
+            </form>
         </div>
     </div>
 
