@@ -65,8 +65,8 @@ echo '<!DOCTYPE html>
                 </div>
                 <div class="row">
                     <select name="tutors" class="form-select">
-                        <option>Tom, Martin, Stef, Dan</option>
-                        <option>Mosh, Max, Stefan</option>
+                        <option value="Tom">Tom, Martin, Stef, Dan</option>
+                        <option value="Mosh">Mosh, Max, Stefan</option>
                     </select>
                 </div>
                 <div class="row">
