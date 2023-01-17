@@ -20,3 +20,5 @@ $result = mysqli_query($conn, $query);
 	}
 	else {
 	header("Location: index.php");
+	}
+?>
