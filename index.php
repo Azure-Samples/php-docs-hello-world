@@ -54,7 +54,7 @@ echo '<!DOCTYPE html>
         echo '
         </div>
         <div>
-            <form action="createcbp.php" method="POST">
+            <form action="./createcbp.php" method="POST">
                 <div class="row">
                     <div class="col">
                         <input class="form-control" type="text" name="st" placeholder="start Date">
