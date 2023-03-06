@@ -7,7 +7,7 @@
 		return crypt($string, '$5$rounds=5000$' . $salt . '$');
 	}
 
-echo hash_string("test");
+echo "test";
 
 
 ?>
