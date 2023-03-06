@@ -28,7 +28,6 @@ $str .= "\u{bfbd}";
 $str .= "\u{5eef}";
 $str .= "\u{bfbd}";
 
-31EF BFBD 7216 231E 5AEF BFBD EFBF BDEF BFBD 5EEF BFBD EFBF BDEF BFBD 5EEF BFBD
 
 /*$salt = utf8_decode("1�r#Z���^���^�"); */
        echo 'Ny Salt2 = ' . $str;
