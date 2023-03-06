@@ -16,8 +16,8 @@ echo 'Blowfish:     ',
     "\n\r";
 $salt = iconv('Latin1', 'UTF-8', hex2str("EFBFBD7216231E5AEFBFBDEFBFBDEFBFBD5EEFBFBDEFBFBDEFBFBD5EEFBFBD"));
 
-/*$salt = utf8_decode("1�r#Z���^���^�");*/
-       echo 'Ny Salt2 = ' . $salt;
+/*$salt = utf8_decode("1�r#Z���^���^�");
+       echo 'Ny Salt2 = ' . $salt;*/
 echo 'SHA-256:      ',
     
 
