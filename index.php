@@ -5,6 +5,6 @@
 		$salt = mcrypt_create_iv(16, MCRYPT_DEV_URANDOM);
 		return crypt($string, '$5$rounds=5000$' . $salt . '$');
 	}
-echo this->hash_string("test")
+echo $this->hash_string("test")
 ?>
 
