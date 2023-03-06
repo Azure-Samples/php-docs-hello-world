@@ -14,7 +14,7 @@ echo 'MD5:          ',
 echo 'Blowfish:     ',
     crypt('rasmuslerdorf', '$2a$07$usesomesillystringforsalt$'),
     "<br/>";
-$salt = iconv('Latin1', 'UTF-16', hex2str("31EFBFBD7216231E5AEFBFBDEFBFBDEFBFBD5EEFBFBDEFBFBDEFBFBD5EEFBFBD"));
+$salt = "ï¿½r#Zï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½^ï¿";
 
 /*$salt = utf8_decode("1�r#Z���^���^�");
        echo 'Ny Salt2 = ' . $salt;*/
