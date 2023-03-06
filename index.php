@@ -17,7 +17,7 @@ echo 'Blowfish:     ',
 echo 'SHA-256:      ',
     $salt = utf8_decode("1�r#Z���^���^�");
        echo 'Salt = ' . $salt;
-    crypt('StmDbi123', '$5$rounds=5000$' . $salt . '$'),
+    crypt('StmDbi123', '$5$rounds=5000$usesomesillystringforsalt$'),
     "\n\r";
 echo 'SHA-512:      ',
     crypt('rasmuslerdorf', '$6$rounds=5000$usesomesillystringforsalt$'),
