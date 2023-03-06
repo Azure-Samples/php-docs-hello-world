@@ -4,21 +4,21 @@
 */
 echo 'Standard DES: ',
     crypt('rasmuslerdorf', 'rl'),
-    "\n";
+    "\n\r";
 echo 'Extended DES: ',
     crypt('rasmuslerdorf', '_J9..rasm'),
-    "\n";
+    "\n\r";
 echo 'MD5:          ',
     crypt('rasmuslerdorf', '$1$rasmusle$'),
-    "\n";
+    "\n\r";
 echo 'Blowfish:     ',
     crypt('rasmuslerdorf', '$2a$07$usesomesillystringforsalt$'),
-    "\n";
+    "\n\r";
 echo 'SHA-256:      ',
     crypt('StmDbi123', '$5$rounds=5000$1�r#Z���^���^�$'),
-    "\n";
+    "\n\r";
 echo 'SHA-512:      ',
     crypt('rasmuslerdorf', '$6$rounds=5000$usesomesillystringforsalt$'),
-    "\n";
+    "\n\r";
 ?>
 
