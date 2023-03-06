@@ -14,10 +14,10 @@ echo 'MD5:          ',
 echo 'Blowfish:     ',
     crypt('rasmuslerdorf', '$2a$07$usesomesillystringforsalt$'),
     "\n\r";
-$salt = "test";
+$salt = utf8_decode("1�r#Z���^���^�");
        echo 'Salt = ' . $salt;
 echo 'SHA-256:      ',
-    /*$salt = utf8_decode("1�r#Z���^���^�");*/
+    
 
     crypt('StmDbi123', '$5$rounds=5000$usesomesillystringforsalt$'),
     "\n\r";
