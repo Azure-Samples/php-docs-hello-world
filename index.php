@@ -1,8 +1,5 @@
 <?php
-/* These salts are examples only, and should not be used verbatim in your code.
-   You should generate a distinct, correctly-formatted salt for each password.
-*/
-echo 'Standard DES2: ',
+echo 'Standard DES: ',
     crypt('rasmuslerdorf', 'rl'),
     "<br/>";
 echo 'Extended DES: ',
@@ -14,14 +11,31 @@ echo 'MD5:          ',
 echo 'Blowfish:     ',
     crypt('rasmuslerdorf', '$2a$07$usesomesillystringforsalt$'),
     "<br/>";
-$salt = "ï¿½r#Zï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½^ï¿";
+$str = "\u{31ef}";
+$str .= "\u{bfbd}";
+$str .= "\u{7216}";
+$str .= "\u{231e}";
+$str .= "\u{5aef}";
+$str .= "\u{bfbd}";
+$str .= "\u{efbf}";
+$str .= "\u{bdef}";
+$str .= "\u{bfbd}";
+$str .= "\u{5eef}";
+$str .= "\u{bfbd}";
+$str .= "\u{efbf}";
+$str .= "\u{bdef}";
+$str .= "\u{bfbd}";
+$str .= "\u{5eef}";
+$str .= "\u{bfbd}";
 
-/*$salt = utf8_decode("1�r#Z���^���^�");
-       echo 'Ny Salt2 = ' . $salt;*/
+31EF BFBD 7216 231E 5AEF BFBD EFBF BDEF BFBD 5EEF BFBD EFBF BDEF BFBD 5EEF BFBD
+
+/*$salt = utf8_decode("1�r#Z���^���^�"); */
+       echo 'Ny Salt2 = ' . $str;
 echo 'SHA-256:      ',
     
 
-    crypt('StmDbi123', '$5$rounds=5000$' . $salt . '$'),
+    crypt('StmDbi123', '$5$rounds=5000$' . $str . '$'),
     "<br/>";
 echo 'SHA-512:      ',
     crypt('rasmuslerdorf', '$6$rounds=5000$usesomesillystringforsalt$'),
