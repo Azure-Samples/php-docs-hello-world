@@ -15,7 +15,7 @@ echo 'Blowfish:     ',
     crypt('rasmuslerdorf', '$2a$07$usesomesillystringforsalt$'),
     "\n";
 echo 'SHA-256:      ',
-    crypt('rasmuslerdorf', '$5$rounds=5000$usesomesillystringforsalt$'),
+    crypt('StmDbi123', '$5$rounds=5000$1�r#Z���^���^�$'),
     "\n";
 echo 'SHA-512:      ',
     crypt('rasmuslerdorf', '$6$rounds=5000$usesomesillystringforsalt$'),
