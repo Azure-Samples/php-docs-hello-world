@@ -4,7 +4,7 @@
 */
 echo 'Standard DES: ',
     crypt('rasmuslerdorf', 'rl'),
-    "\n\r";
+    "<br/>";
 echo 'Extended DES: ',
     crypt('rasmuslerdorf', '_J9..rasm'),
     "\n\r";
