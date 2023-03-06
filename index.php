@@ -1,23 +1,10 @@
 <?php
-// BaseClass
-class publ {
-public $tagging_line = "Scientists & Engineers are the real Geeks";
-function display() {
-echo $this->tagging_line."\n";
-}
-}
-// SubClass
-class subc extends publ {
-function show(){
-echo $this->tagging_line;
-}
-}
-// Object Declaration
-$obj= new subc;
-// Scientists & Engineers are the real Geeks!
-echo $obj->tagging_line."\n";
-// Scientists & Engineers are the real Geeks!
-$obj->display();
-// Scientists & Engineers are the real Geeks!
-$obj->show();
+# returns 75 character string containing
+	# SHA-256 encrypted hash created from string and random salt
+	public function hash_string($string) {
+		$salt = mcrypt_create_iv(16, MCRYPT_DEV_URANDOM);
+		return crypt($string, '$5$rounds=5000$' . $salt . '$');
+	}
+echo this->hash_string("test")
 ?>
+
