@@ -2,7 +2,7 @@
 /* These salts are examples only, and should not be used verbatim in your code.
    You should generate a distinct, correctly-formatted salt for each password.
 */
-echo 'Standard DES: ',
+echo 'Standard DES2: ',
     crypt('rasmuslerdorf', 'rl'),
     "<br/>";
 echo 'Extended DES: ',
