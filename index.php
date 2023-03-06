@@ -7,13 +7,13 @@ echo 'Standard DES: ',
     "<br/>";
 echo 'Extended DES: ',
     crypt('rasmuslerdorf', '_J9..rasm'),
-    "\n\r";
+    "<br/>";
 echo 'MD5:          ',
     crypt('rasmuslerdorf', '$1$rasmusle$'),
-    "\n\r";
+    "<br/>";
 echo 'Blowfish:     ',
     crypt('rasmuslerdorf', '$2a$07$usesomesillystringforsalt$'),
-    "\n\r";
+    "<br/>";
 $salt = iconv('Latin1', 'UTF-8', hex2str("31EFBFBD7216231E5AEFBFBDEFBFBDEFBFBD5EEFBFBDEFBFBDEFBFBD5EEFBFBD"));
 
 /*$salt = utf8_decode("1�r#Z���^���^�");
@@ -22,9 +22,9 @@ echo 'SHA-256:      ',
     
 
     crypt('StmDbi123', '$5$rounds=5000$' . $salt . '$'),
-    "\n\r";
+    "<br/>";
 echo 'SHA-512:      ',
     crypt('rasmuslerdorf', '$6$rounds=5000$usesomesillystringforsalt$'),
-    "\n\r";
+    "<br/>";
 ?>
 
