@@ -1,3 +1,3 @@
 <?php
 
-echo "Hello World!";
+echo "Hello the people of the world of AI!";
