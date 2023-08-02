@@ -1,3 +1,3 @@
 <?php
 
-echo "Sælir kælir";
+echo "Sælir kælir1";
