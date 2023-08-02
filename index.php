@@ -30,10 +30,11 @@ $paymentData = json_decode($paymentData, true);
 try {
     $applePayValidator->validatePaymentDataStructure($paymentData);
     $decodedToken = $applePayDecodingService->decode($privateKey, $appleId, $paymentData, $rootCertificatePath, $expirationTime);
-    echo 'Decoded token is: '.PHP_EOL.PHP_EOL;
+    //echo 'Decoded token is: '.PHP_EOL.PHP_EOL;
     // var_dump($decodedToken);
     
-    print("<pre>".print_r($decodedToken,true)."</pre>");
+    //print("<pre>".print_r($decodedToken,true)."</pre>");
+    echo json_encode($decodedToken);
 
 
 
