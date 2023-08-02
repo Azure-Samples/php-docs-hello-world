@@ -1,0 +1,5 @@
+{
+    "require": {
+        "payu/apple-pay": "^1.2"
+    }
+}

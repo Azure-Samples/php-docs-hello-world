@@ -1,3 +1,46 @@
 <?php
 
-echo "Sælir kælir1";
+use PayU\ApplePay\ApplePayDecodingServiceFactory;
+use PayU\ApplePay\ApplePayValidator;
+use PayU\ApplePay\Exception\DecodingFailedException;
+use PayU\ApplePay\Exception\InvalidFormatException;
+    
+require __DIR__ . '/vendor/autoload.php';
+
+// private key used to create the CSR 
+$privateKey = 'MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgPmCUbO2eLncoVwq0/jBziRGEVViOFAwg5l/7gV4rTXChRANCAAR0V5QektKHWIyFJBpEQR+uvLKYsXVvz9T/c3DzqbjSt2ahJs9ioiomz9otz+jAN/vbWKDQK0CL1qA2Yub8aOq9';
+
+// merchant identifier from Apple Pay Merchant Accountx
+$appleId = 'merchant.is.pez.stubbur';
+
+// payment token data received from Apple Pay
+$paymentData = '{"data":"RRZ0Yp\/2qjfPlnsHcuGFXnWF0BRNcVeRCX7MVVyFuq7Mqk21h55CnS0ZIMkE9d+A64ct08z40eeRJAj2wstQqW4+vfF3Y4gsj\/6LMrI2sRyFG7QNQ6nJ2UvJw++SmEtb3e0oGy1SibZHaYzvMI1N63n87AsSxo0196k3RFJdi6PXGns4CLJKN2gBxEMDhZyJW9C3SmQ3JbbzIitbn4+wwkpbV0enyudPX61fQlHZ89HuVfr97Rig903iq9ZJYGt8a1jvLXHSL28P10l4cjBOBjk90ZbFcXMYX8Wzu+L5qy9evXbYm45ps+BLRK2TrgOJs8MwPMAzH44bapdQ8h3xnR2drZdhItaxh+4QORG4doMLclPyiOGJfZXzQXLIgaR9XvFk8IOGfA2JisGVP\/m0XhXeDqCOQSWSUiRuTBie3A==","signature":"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\/JJxE+T5O8n5sT2KGw\/orv9LkswDwYDVR0TAQH\/BAUwAwEB\/zAfBgNVHSMEGDAWgBS7sN6hWDOImqSKmd6+veuv2sskqzA3BgNVHR8EMDAuMCygKqAohiZodHRwOi8vY3JsLmFwcGxlLmNvbS9hcHBsZXJvb3RjYWczLmNybDAOBgNVHQ8BAf8EBAMCAQYwEAYKKoZIhvdjZAYCDgQCBQAwCgYIKoZIzj0EAwIDZwAwZAIwOs9yg1EWmbGG+zXDVspiv\/QX7dkPdU2ijr7xnIFeQreJ+Jj3m1mfmNVBDY+d6cL+AjAyLdVEIbCjBXdsXfM4O5Bn\/Rd8LCFtlk\/GcmmCEm9U+Hp9G5nLmwmJIWEGmQ8Jkh0AADGCAYcwggGDAgEBMIGGMHoxLjAsBgNVBAMMJUFwcGxlIEFwcGxpY2F0aW9uIEludGVncmF0aW9uIENBIC0gRzMxJjAkBgNVBAsMHUFwcGxlIENlcnRpZmljYXRpb24gQXV0aG9yaXR5MRMwEQYDVQQKDApBcHBsZSBJbmMuMQswCQYDVQQGEwJVUwIITDBBSVGdVDYwCwYJYIZIAWUDBAIBoIGTMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTIzMDIxMzE0MTkyNlowKAYJKoZIhvcNAQk0MRswGTALBglghkgBZQMEAgGhCgYIKoZIzj0EAwIwLwYJKoZIhvcNAQkEMSIEIPdEVCVST+QN\/pBphRK194GT2Y+7TOO2BVDetq\/vhlDfMAoGCCqGSM49BAMCBEYwRAIgY6ebdnTrK\/PdWjrF+jtXm6itrVSYyzMQ0hQjV9+sDmgCIFJZpP9QRXTwzDXyWTCA19wnSWeKS15OO4lUKKis6QPRAAAAAAAA","header":{"publicKeyHash":"\/16T7CvrdBJhVY0Rjc\/QDXpX1UMkhrpHPcTn9ZqYkco=","ephemeralPublicKey":"MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEwkhekezw+jVParbDSFhxe4fQCIXLp2S3ocyJvMSzr+zHIwzBza1a7KNf5QasRaqJgf9kK9N4X\/ubm1HFHmlazA==","transactionId":"b7dbc2ab149fc1a268ed89ff908d4711456d50a051ea4d5137c219ed15011b54"},"version":"EC_v1"}';
+
+// how many seconds should the token be valid since the creation time.
+$expirationTime = 315360000; // It should be changed in production to a reasonable value (a couple of minutes)
+
+$rootCertificatePath = __DIR__ . '/AppleRootCA-G3.pem';
+
+$applePayDecodingServiceFactory = new ApplePayDecodingServiceFactory();
+$applePayDecodingService = $applePayDecodingServiceFactory->make();
+$applePayValidator = new ApplePayValidator();
+
+$paymentData = json_decode($paymentData, true);
+
+try {
+    $applePayValidator->validatePaymentDataStructure($paymentData);
+    $decodedToken = $applePayDecodingService->decode($privateKey, $appleId, $paymentData, $rootCertificatePath, $expirationTime);
+    echo 'Decoded token is: '.PHP_EOL.PHP_EOL;
+    // var_dump($decodedToken);
+    
+    print("<pre>".print_r($decodedToken,true)."</pre>");
+
+
+
+} catch(DecodingFailedException $exception) {
+    echo 'Decoding failed: '.PHP_EOL.PHP_EOL;
+    echo $exception->getMessage();
+} catch(InvalidFormatException $exception) {
+    echo 'Invalid format: '.PHP_EOL.PHP_EOL;
+    echo $exception->getMessage();
+}
