@@ -1,3 +1,3 @@
 <?php
 
-echo "Moro mualima!";
+echo "moi sulle lolin pelaaja!";
