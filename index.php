@@ -1,3 +1,3 @@
 <?php
 
-echo "moi sulle lolin pelaaja!";
+echo "kuulemma uus versio tai jotain";
