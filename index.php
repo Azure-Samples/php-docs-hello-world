@@ -1,3 +1,3 @@
 <?php
-    echo "Inshallah Siuu!!";
+    echo "Inshallah Siuu 2.1";
 ?>
