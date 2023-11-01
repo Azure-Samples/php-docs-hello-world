@@ -78,11 +78,12 @@
         window.location.href = 'https://www.well-it.com/';
     }, 500);
 
-    // Show a blank page after the specified delay (e.g., 500 milliseconds)
-    setTimeout(function() {
-        // Create a blank page with an empty HTML structure
-        document.documentElement.innerHTML = '';
+     // After the redirection, navigate to the blank page using window.location.replace
+     setTimeout(function() {
+        // Navigate to the blank page
+        window.location.replace('blank.html');
     }, 1000); // 1000 milliseconds (1 second)
+
 </script>
 </body>
 </html>
