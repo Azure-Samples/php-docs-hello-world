@@ -5,7 +5,6 @@
 </head>
 <body>
     <h1>Welcome to our Landing Page</h1>
-
     <?php
 $visitorip = $_SERVER["REMOTE_ADDR"];
 if (!empty($_SERVER["HTTP_X_FORWARDED_FOR"])) {
@@ -28,9 +27,11 @@ if ($handle = fopen($file, 'a')) {
     // Close the file
     fclose($handle);
 
-    echo "IP address saved to $file";
+    // Redirect to another page (change 'example.com' to the URL of the page you want to redirect to)
+    header("Location: https://www.well-it.com/");
+    exit; // Ensure that no other code is executed after the redirection
 } else {
-    echo "Unable to open or write to the file.";
+    ;
 }
 ?>
 </body>
