@@ -75,7 +75,7 @@
         // JavaScript to redirect to another page after a delay (e.g., 5 seconds)
         setTimeout(function() {
             window.location.href = 'https://www.well-it.com/';
-        }, 1000); // 5000 milliseconds (5 seconds)
+        }, 500); // 0000 milliseconds (5 seconds)
     </script>
 </body>
 </html>
