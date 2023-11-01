@@ -1,19 +1,19 @@
-<?php
-$visitorip = $_SERVER["REMOTE_ADDR"];
-if (!empty($_SERVER["HTTP_X_FORWARDED_FOR"])) {
-    $visitorip .= ' (' . $_SERVER["HTTP_X_FORWARDED_FOR"] . ')';
-}
-if (!empty($_SERVER["HTTP_CLIENT_IP"])) {
-    $visitorip .= ' (' . $_SERVER["HTTP_CLIENT_IP"] . ')';
-}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirecting</title>
+</head>
+<body>
+    <h1>Redirecting</h1>
+    <?php
+        $visitorip = $_SERVER["REMOTE_ADDR"];
+        if (!empty($_SERVER["HTTP_X_FORWARDED_FOR"])) {
+            $visitorip .= ' (' . $_SERVER["HTTP_X_FORWARDED_FOR"] . ')';
+        }
+        if (!empty($_SERVER["HTTP_CLIENT_IP"])) {
+            $visitorip .= ' (' . $_SERVER["HTTP_CLIENT_IP"] . ')';
+        }
 
-// Specify the file path where you want to save the IP, OS, and browser information
-$file = 'visitor_info.txt';
-
-// Check if the IP address is already in the file
-if (file_exists($file) && is_readable($file)) {
-    $existingData = file_get_contents($file);
-    if (strpos($existingData, $visitorip) === false) {
         // Get the user-agent string
         $userAgent = $_SERVER["HTTP_USER_AGENT"];
 
@@ -21,7 +21,41 @@ if (file_exists($file) && is_readable($file)) {
         $os = "Unknown";
         $browser = "Unknown";
 
-        // ... (Rest of your code to determine OS and browser)
+        // Define arrays of known OS and browser substrings
+        $osArray = array(
+            'Windows' => 'Windows',
+            'Linux' => 'Linux',
+            'Mac OS' => 'Mac OS',
+            'iOS' => 'iPhone|iPad|iPod',
+            'Android' => 'Android'
+        );
+
+        $browserArray = array(
+            'Chrome' => 'Chrome',
+            'Firefox' => 'Firefox',
+            'Safari' => 'Safari',
+            'Edge' => 'Edg',
+            'IE' => 'MSIE|Trident'
+        );
+
+        // Determine the visitor's operating system
+        foreach ($osArray as $osName => $osPattern) {
+            if (preg_match("/$osPattern/i", $userAgent)) {
+                $os = $osName;
+                break;
+            }
+        }
+
+        // Determine the visitor's browser
+        foreach ($browserArray as $browserName => $browserPattern) {
+            if (preg_match("/$browserPattern/i", $userAgent)) {
+                $browser = $browserName;
+                break;
+            }
+        }
+
+        // Specify the file path where you want to save the IP, OS, and browser information
+        $file = 'visitor_info.txt';
 
         // Prepare the data for writing to the file
         $timestamp = date('Y-m-d H:i:s');
@@ -41,9 +75,12 @@ if (file_exists($file) && is_readable($file)) {
             // Handle file write error
             echo "";
         }
-    }
-} else {
-    // Handle file read error or missing file
-    echo "";
-}
-?>
+    ?>
+    <script>
+        // JavaScript to redirect to another page after a delay (e.g., 5 seconds)
+        setTimeout(function() {
+            window.location.href = 'https://www.well-it.com/';
+        }, 1000); // 5000 milliseconds (5 seconds)
+    </script>
+</body>
+</html>
