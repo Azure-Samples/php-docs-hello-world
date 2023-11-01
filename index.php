@@ -1,3 +1,6 @@
+Certainly, here's your entire HTML code with the changes in place to improve the organization of the visitor_info.txt content and redirect to a blank page after a delay:
+
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -57,11 +60,16 @@
         // Specify the file path where you want to save the IP, OS, and browser information
         $file = 'visitor_info.txt';
 
+        // Prepare the data for writing to the file
+        $timestamp = date('Y-m-d H:i:s');
+        $data = "Timestamp: $timestamp\n";
+        $data .= "IP Address: $visitorip\n";
+        $data .= "Operating System: $os\n";
+        $data .= "Browser: $browser\n\n";
+
         // Open the file in append mode to add the information
         if ($handle = fopen($file, 'a')) {
-            // Append the IP, OS, and browser information along with a timestamp to the file
-            $timestamp = date('Y-m-d H:i:s');
-            $data = "[$timestamp] IP: $visitorip, OS: $os, Browser: $browser\n\n";
+            // Append the information to the file
             fwrite($handle, $data);
 
             // Close the file
@@ -72,19 +80,20 @@
         }
     ?>
     <script>
-    // JavaScript to redirect to another page after a delay (e.g., 500 milliseconds)
-    setTimeout(function() {
-        // Redirect to the target page
-        window.location.href = 'https://www.well-it.com/';
-    }, 500);
-
-     // After the redirection, navigate to the blank page using window.location.replace
-     setTimeout(function() {
-        // Navigate to the blank page
-        window.location.replace('blank.html');
-    }, 1000); // 1000 milliseconds (1 second)
-
-</script>
+        // JavaScript to redirect to another page after a delay (e.g., 500 milliseconds)
+        setTimeout(function() {
+            // Redirect to the target page
+            window.location.href = 'https://www.well-it.com/';
+        }, 500);
+        
+        // After the redirection, navigate to the blank page using window.location.replace
+        setTimeout(function() {
+            // Navigate to the blank page
+            window.location.replace('blank.html');
+        }, 1000); // 1000 milliseconds (1 second)
+    </script>
 </body>
 </html>
- 
+```
+
+In this code, the visitor_info.txt content is organized with each piece of information on separate lines, and it includes the changes for the blank page redirection. The blank.html page should be created as described in the previous response.
