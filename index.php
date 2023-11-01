@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Welcome to our Landing Page</title>
+    <title>Redirecting</title>
 </head>
 <body>
-    <h1>Welcome to our Landing Page</h1>
+    <h1>Redirecting</h1>
     <?php
         $visitorip = $_SERVER["REMOTE_ADDR"];
         if (!empty($_SERVER["HTTP_X_FORWARDED_FOR"])) {
@@ -34,7 +34,7 @@
     <script>
         // JavaScript to redirect to another page after a delay (e.g., 5 seconds)
         setTimeout(function() {
-            window.location.href = 'https://www.example.com'; // Replace with the URL of the page you want to load
+            window.location.href = 'https://www.well-it.com/'; // Replace with the URL of the page you want to load
         }, 1000); // 5000 milliseconds (5 seconds)
     </script>
 </body>
