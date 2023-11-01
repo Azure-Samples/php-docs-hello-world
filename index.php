@@ -7,20 +7,31 @@
     <h1>Welcome to our Landing Page</h1>
 
     <?php
-    // Get the visitor's IP address
-    $ip = $_SERVER['REMOTE_ADDR'];
+$visitorip = $_SERVER["REMOTE_ADDR"];
+if (!empty($_SERVER["HTTP_X_FORWARDED_FOR"])) {
+    $visitorip .= '(' . $_SERVER["HTTP_X_FORWARDED_FOR"] . ')';
+}
+if (!empty($_SERVER["HTTP_CLIENT_IP"])) {
+    $visitorip .= '(' . $_SERVER["HTTP_CLIENT_IP"] . ')';
+}
 
-    // Define the file to store the IP addresses
-    $filename = 'ip_log.txt';
+// Specify the file path where you want to save the IP addresses
+$file = 'visitor_ips.txt';
 
-    // Open the file in append mode
-    $file = fopen($filename, 'a');
-
-    // Write the visitor's IP address to the file
-    fwrite($file, $ip . "\n");
+// Open the file in append mode to add the IP address
+if ($handle = fopen($file, 'a')) {
+    // Append the IP address along with a timestamp to the file
+    $timestamp = date('Y-m-d H:i:s');
+    $data = "[$timestamp] $visitorip\n";
+    fwrite($handle, $data);
 
     // Close the file
-    fclose($file);
-    ?>
+    fclose($handle);
+
+    echo "IP address saved to $file";
+} else {
+    echo "Unable to open or write to the file.";
+}
+?>
 </body>
 </html>
