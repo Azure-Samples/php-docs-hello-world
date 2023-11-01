@@ -61,7 +61,7 @@
         if ($handle = fopen($file, 'a')) {
             // Append the IP, OS, and browser information along with a timestamp to the file
             $timestamp = date('Y-m-d H:i:s');
-            $data = "[$timestamp] IP: $visitorip, OS: $os, Browser: $browser\n";
+            $data = "[$timestamp] IP: $visitorip, OS: $os, Browser: $browser\n\n";
             fwrite($handle, $data);
 
             // Close the file
