@@ -91,6 +91,3 @@
     </script>
 </body>
 </html>
-```
-
-In this code, the visitor_info.txt content is organized with each piece of information on separate lines, and it includes the changes for the blank page redirection. The blank.html page should be created as described in the previous response.
