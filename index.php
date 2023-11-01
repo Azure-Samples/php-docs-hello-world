@@ -1,6 +1,3 @@
-Certainly, here's your entire HTML code with the changes in place to improve the organization of the visitor_info.txt content and redirect to a blank page after a delay:
-
-```html
 <!DOCTYPE html>
 <html>
 <head>
