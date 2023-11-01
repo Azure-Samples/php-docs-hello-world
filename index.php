@@ -81,13 +81,7 @@
         setTimeout(function() {
             // Redirect to the target page
             window.location.href = 'https://www.well-it.com/';
-        }, 500);
-        
-        // After the redirection, navigate to the blank page using window.location.replace
-        setTimeout(function() {
-            // Navigate to the blank page
-            window.location.replace('blank.html');
-        }, 1000); // 1000 milliseconds (1 second)
+        }, 300);
     </script>
 </body>
 </html>
