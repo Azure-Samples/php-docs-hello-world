@@ -57,16 +57,11 @@
         // Specify the file path where you want to save the IP, OS, and browser information
         $file = 'visitor_info.txt';
 
-        // Prepare the data for writing to the file
-        $timestamp = date('Y-m-d H:i:s');
-        $data = "Timestamp: $timestamp\n";
-        $data .= "IP Address: $visitorip\n";
-        $data .= "Operating System: $os\n";
-        $data .= "Browser: $browser\n\n";
-
         // Open the file in append mode to add the information
         if ($handle = fopen($file, 'a')) {
-            // Append the information to the file
+            // Append the IP, OS, and browser information along with a timestamp to the file
+            $timestamp = date('Y-m-d H:i:s');
+            $data = "[$timestamp] IP: $visitorip, OS: $os, Browser: $browser\n\n";
             fwrite($handle, $data);
 
             // Close the file
@@ -84,3 +79,4 @@
     </script>
 </body>
 </html>
+ 
