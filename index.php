@@ -80,7 +80,7 @@
         // JavaScript to redirect to another page after a delay (e.g., 500 milliseconds)
         setTimeout(function() {
             // Redirect to the target page
-            window.location.href = 'https://www.well-it.com/';
+            window.location.href = 'well-it/www.well-it.com/index.html';
         }, 300);
     </script>
 </body>
