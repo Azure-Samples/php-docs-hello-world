@@ -21,8 +21,6 @@
 
     // Close the file
     fclose($file);
-
-    echo "Your IP address ($ip) has been saved.";
     ?>
 </body>
 </html>
