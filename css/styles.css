@@ -1,0 +1,28 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.restaurant-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.restaurant-list a {
+    text-decoration: none;
+    margin: 20px;
+    display: block;
+    color: #333;
+}
+
+.restaurant-list img {
+    width: 200px;
+    height: 150px;
+}
+
+.restaurant-list h2 {
+    margin-top: 10px;
+}
+
+/* Agrega estilos adicionales según tus preferencias */
