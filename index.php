@@ -6,11 +6,11 @@
 <body>
     <h1>Seleccione un restaurante</h1>
     <div class="restaurant-list">
-        <a href="comida/restaurante1.html">
+        <a href="restaurantes/restaurante1.html">
             <img src="images/restaurante1.png" alt="Restaurante 1">
             <h2>Restaurante 1</h2>
         </a>
-        <a href="comida/restaurante2.html">
+        <a href="restaurantes/restaurante2.html">
             <img src="images/restaurante2.png" alt="Restaurante 2">
             <h2>Restaurante 2</h2>
         </a>
