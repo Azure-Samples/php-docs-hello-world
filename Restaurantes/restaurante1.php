@@ -23,5 +23,15 @@
             <input type="submit" value="Enviar Pedido">
         </form>
     </div>
+
+    <h2>Consulta de Pedido</h2>
+    <div class="consulta-formulario">
+        <form action="consultar_pedido.php" method="post">
+            <label for="numero_pedido">Número de Pedido:</label>
+            <input type="text" name="numero_pedido" id="numero_pedido" required>
+            <input type="submit" value="Consultar Pedido">
+        </form>
+    </div>
+    
 </body>
 </html>
