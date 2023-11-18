@@ -63,4 +63,4 @@ jobs:
           app-name: 'IPreturner'
           slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C07F2AD7DF0F4A7AA5EDEC109AAC2300 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2DC5FA77E6A64CDBAC31F07D9067C138 }}
