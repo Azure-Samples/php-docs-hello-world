@@ -9,7 +9,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #e3e3e3;
             text-align: center;
             padding: 100px;
         }
@@ -56,7 +56,19 @@
         }
 
         #toggleButton:hover {
-            transform: scale(1.1); /* Flottement lorsque la souris survole l'image */
+            transform: scale(1.10); /* Flottement lorsque la souris survole l'image */
+        }
+
+        /* Ajoutez la classe personnalisée pour la couleur orange */
+        .btn-orange {
+            background-color: #eb832f; /* Remplacez ceci par votre couleur orange personnalisée */
+            border-color: #eb832f;
+            color: #fff; /* Texte en blanc pour contraster avec l'arrière-plan orange */
+        }
+
+        /* Ajoutez de l'espace entre les boutons "Terminé" et "Supprimer" */
+        .btn-space {
+            margin-right: 10px;
         }
     </style>
 </head>
@@ -72,7 +84,7 @@
         </ul>
         <input type="text" id="newTask" placeholder="Ajouter une nouvelle tâche">
         <!-- Utilisation de classes Bootstrap pour les boutons -->
-        <button class="btn btn-primary" onclick="addTask()">Ajouter</button>
+        <button class="btn btn-primary btn-orange" onclick="addTask()">Ajouter</button>
     </div>
 
     <!-- Ajout du lien vers Bootstrap JS (facultatif, mais nécessaire pour certaines fonctionnalités Bootstrap) -->
@@ -88,8 +100,8 @@
                 var li = document.createElement('li');
                 li.innerHTML = '<span class="task-text">' + taskText + '</span>' +
                                 '<span class="task-buttons">' +
-                                '<button class="btn btn-success" onclick="completeTask(this)">Terminé</button>' +
-                                '<button class="btn btn-danger" onclick="removeTask(this)">Supprimer</button>' +
+                                '<button class="btn btn-success btn-orange btn-space" onclick="completeTask(this)">Terminé</button>' +
+                                '<button class="btn btn-danger btn-orange" onclick="removeTask(this)">Supprimer</button>' +
                                 '</span>';
                 taskList.appendChild(li);
                 document.getElementById('newTask').value = '';
