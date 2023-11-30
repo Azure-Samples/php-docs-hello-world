@@ -1,3 +1,3 @@
 <?php
 
-echo "SITE EN CONSTRUCTION !";
+echo "T MOCHE ENCULEEYYYY !";
