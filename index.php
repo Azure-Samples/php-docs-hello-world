@@ -61,8 +61,8 @@
 
         /* Ajoutez la classe personnalisée pour la couleur orange */
         .btn-orange {
-            background-color: #eb832f; /* Remplacez ceci par votre couleur orange personnalisée */
-            border-color: #eb832f;
+            background-color: #444b66; /* Remplacez ceci par votre couleur orange personnalisée */
+            border-color: #444b66;
             color: #fff; /* Texte en blanc pour contraster avec l'arrière-plan orange */
         }
 
