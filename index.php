@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Site en Construction</title>
+    <!-- Ajout du lien vers Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -61,7 +63,7 @@
 <body>
     <h1>Site en Construction depuis 10000 ans !</h1>
     <p>Nous travaillons dur pour améliorer votre expérience. Revenez bientôt !</p>
-    <img id="toggleButton" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/31abb4cb-6088-4e93-85bc-744885028b01/dd9h88u-d384c96c-b1e3-44d7-b639-88946a92cb2e.png/v1/fill/w_998,h_801/outer_wilds_logo_by_justagirlcalledlex_dd9h88u-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9ODgwIiwicGF0aCI6IlwvZlwvMzFhYmI0Y2ItNjA4OC00ZTkzLTg1YmMtNzQ0ODg1MDI4YjAxXC9kZDloODh1LWQzODRjOTZjLWIxZTMtNDRkNy1iNjM5LTg4OTQ2YTkyY2IyZS5wbmciLCJ3aWR0aCI6Ijw9MTA5NyJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.uudThtKhfgqxRpUCpUf-pemKntRfmJUuFo5Y5HQbfNU" alt="Image Outer Wilds">
+    <img id="toggleButton" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/31abb4cb-6088-4e93-85bc-744885028b01/dd9h88u-d384c96c-b1e3-44d7-b639-88946a92cb2e.png/v1/fill/w_998,h_801/outer_wilds_logo_by_justagirlcalledlex_dd9h88u-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9ODgwIiwicGF0aCI6IlwvZlwvMzFhYmI0Y2ItNjA4OC00ZTkzLTg1YmMtNzQ4ODg1MDI4YjAxXC9kZDloODh1LWQzODRjOTZjLWIxZTMtNDRkNy1iNjM5LTg4OTQ2YTkyY2IyZS5wbmciLCJ3aWR0aCI6Ijw9MTA5NyJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.uudThtKhfgqxRpUCpUf-pemKntRfmJUuFo5Y5HQbfNU" alt="Image Outer Wilds">
 
     <div class="todolist" id="todolist">
         <h2>To-Do List</h2>
@@ -69,8 +71,14 @@
             <!-- Tasks will be dynamically added here -->
         </ul>
         <input type="text" id="newTask" placeholder="Ajouter une nouvelle tâche">
-        <button onclick="addTask()">Ajouter</button>
+        <!-- Utilisation de classes Bootstrap pour les boutons -->
+        <button class="btn btn-primary" onclick="addTask()">Ajouter</button>
     </div>
+
+    <!-- Ajout du lien vers Bootstrap JS (facultatif, mais nécessaire pour certaines fonctionnalités Bootstrap) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
     <script>
         function addTask() {
@@ -80,8 +88,8 @@
                 var li = document.createElement('li');
                 li.innerHTML = '<span class="task-text">' + taskText + '</span>' +
                                 '<span class="task-buttons">' +
-                                '<button onclick="completeTask(this)">Terminé</button>' +
-                                '<button onclick="removeTask(this)">Supprimer</button>' +
+                                '<button class="btn btn-success" onclick="completeTask(this)">Terminé</button>' +
+                                '<button class="btn btn-danger" onclick="removeTask(this)">Supprimer</button>' +
                                 '</span>';
                 taskList.appendChild(li);
                 document.getElementById('newTask').value = '';
