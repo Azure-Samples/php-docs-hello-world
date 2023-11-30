@@ -50,7 +50,7 @@
 
         /* Ajout de styles pour réduire la taille de l'image */
         #toggleButton {
-            width: 200px; /* Ajustez la largeur selon vos besoins */
+            width: 300px; /* Ajustez la largeur selon vos besoins */
             height: auto; /* Garantit que la hauteur est ajustée proportionnellement à la largeur */
             transition: transform 0.3s ease-in-out; /* Ajout de la transition pour le flottement */
         }
