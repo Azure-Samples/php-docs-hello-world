@@ -1,10 +1,13 @@
+<?php
 
-<!DOCTYPE html>
+echo "Hello how are youit ddddddddd |||||||||||||||||||||||||||||||||||||||||||World!";
+echo <!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+
 <h1>The picture element</h1>
 
 <p>Resize the browser window to load different images.</p>
