@@ -1,7 +1,8 @@
 <?php
 
-echo "Hello how are youit ddddddddd |||||||||||||||||||||||||||||||||||||||||||World!";
-echo <!DOCTYPE html>
+#echo "Hello how are youit ddddddddd |||||||||||||||||||||||||||||||||||||||||||World!";
+
+echo '<!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,4 +20,5 @@ echo <!DOCTYPE html>
 </picture>
 
 </body>
-</html>
+</html>';
+?>
